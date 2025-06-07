@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Medicamento {
-  CodMedicamento     Int     @id @default(autoincrement())
+  CodMedicamento     Int                  @id @default(autoincrement())
   descripcionMed     String
   fechaFabricacion   DateTime
   fechaVencimiento   DateTime
@@ -20,13 +20,12 @@ model Medicamento {
 }
 
 model DetalleOrdenCompra {
-  id                 Int         @id @default(autoincrement())
-  NroOrdenC          Int
-  CodMedicamento     Int
-  descripcion        String
-  cantidad           Int
-  precio             Float
-  montouni           Float
-
-  medicamento        Medicamento @relation(fields: [CodMedicamento], references: [CodMedicamento])
+  id             Int         @id @default(autoincrement())
+  NroOrdenC      Int
+  CodMedicamento Int
+  descripcion    String
+  cantidad       Int
+  precio         Float
+  montouni       Float
+  medicamento    Medicamento @relation(fields: [CodMedicamento], references: [CodMedicamento])
 }
